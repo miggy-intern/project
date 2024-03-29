@@ -71,11 +71,11 @@ export default function ListScreen({ navigation, route }) {
 }const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'lightgray', 
+        backgroundColor: '#d9d4d4', 
         
     },
     scrollViewContent: {
-        paddingHorizontal: 0,
+        paddingVertical: 10,
     },
     row: {
         flexDirection: 'row',
@@ -89,11 +89,11 @@ export default function ListScreen({ navigation, route }) {
         paddingVertical: 10,
     },
     headerColumn: {
-        borderBottomWidth: 1,
+        
         borderBottomColor: 'black',
     },
     dataColumn: {
-        borderBottomWidth: 1,
+        
         borderBottomColor: '#CBC9D0',
     },
     columnHeader: {
