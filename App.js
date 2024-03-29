@@ -23,8 +23,8 @@ export default function App() {
               fontWeight: 'bold',
             },
             headerBackground: () => (
-          <LinearGradient // Colors for Header, Pink, Purlple and SkyBlue
-            colors={['#f066ff', '#b566ff', '#00d4ff']} 
+          <LinearGradient // Colors for Header, Pink and Violet
+            colors={['#f066ff', '#6232E7']} 
             start={{ x: 0, y: 0.5 }} 
             end={{ x: 1, y: 0.5 }}  
             style={StyleSheet.absoluteFill}

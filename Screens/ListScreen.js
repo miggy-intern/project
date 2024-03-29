@@ -13,7 +13,7 @@ export default function ListScreen({ navigation, route }) {
     const blindValues = [];
 
     for (let i = 0; i < lengthofArray; i++) {
-        blindValues.push(`${BlindFirstNumber} / ${BlindSecondNumber}`);
+        blindValues.push(`${BlindFirstNumber}/${BlindSecondNumber}`);
         BlindFirstNumber *= 2;
         BlindSecondNumber *= 2;
     }
@@ -25,71 +25,66 @@ export default function ListScreen({ navigation, route }) {
             <ScrollView contentContainerStyle={styles.scrollViewContent}>
                 <View style={[styles.row, styles.headerRow]}>
                     <View style={[styles.column, styles.headerColumn]}>
-                        <Text style={styles.columnHeader}>Levels</Text>
+                        <Text style={[styles.columnHeader, styles.LevelAlign]}>Level</Text>
                     </View>
                     <View style={[styles.column, styles.headerColumn]}>
-                        <Text style={styles.columnHeader}>Time</Text>
+                        <Text style={[styles.columnHeader, styles.TimeAlign]}>Time</Text>
                     </View>
                     <View style={[styles.column, styles.headerColumn]}>
-                        <Text style={styles.columnHeader}>Blinds</Text>
+                        <Text style={[styles.columnHeader, styles.BlindAlign]}>Blinds</Text>
                     </View>
                 </View>
 
                 {levels.map((level, index) => (
-                    <View key={index} style={styles.row}>
+                    <View key={index} style={[styles.row, styles.backgroundWhite]}>
                         {/* Levels */}
                         <View style={[styles.column, styles.dataColumn]}>
-                            <Text style={styles.columnItem}>{`${level}`}</Text>
+                            <Text style={styles.LevelAlign}>{`${level}`}</Text>
                         </View>
 
                         {/* Time */}
                         <View style={[styles.column, styles.dataColumn]}>
-                            <Text style={styles.columnItem}>{`${level * parseInt(defaultTime, 10)}:00`}</Text>
+                            <Text style={styles.TimeAlign}>{`${level * parseInt(defaultTime, 10)}:00`}</Text>
                         </View>
 
                         {/* Blinds */}
                         <View style={[styles.column, styles.dataColumn]}>
-                            <Text style={styles.columnItem}>{blindValues[index]}</Text>
+                            <Text style={styles.BlindAlign}>{blindValues[index]}</Text>
                         </View>
                     </View>
                 ))}
 
-                <View style={[styles.row]}>
+                <View style={[styles.row, styles.backgroundWhite]}>
                     <View style={[styles.column]}>
-                        <Text style={styles.columnItem}>....</Text>
+                        <Text style={styles.LevelAlign}>....</Text>
                     </View>
                     <View style={[styles.column]}>
-                        <Text style={styles.columnItem}>+3:00</Text>
+                        <Text style={styles.TimeAlign}>+3:00</Text>
                     </View>
                     <View style={[styles.column]}>
-                        <Text style={styles.columnItem}>*2</Text>
+                        <Text style={styles.BlindAlign}>*2</Text>
                     </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
     );
-}
-
-const styles = StyleSheet.create({
+}const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: 'lightgray', 
+        
     },
     scrollViewContent: {
-        paddingHorizontal: 20,
-    },
-    headerRow: {
-        backgroundColor: '#dae3e3',
-
+        paddingHorizontal: 0,
     },
     row: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between', 
         alignItems: 'center',
         borderBottomWidth: 1,
         borderBottomColor: 'lightgray',
     },
     column: {
-        alignItems: 'center',
         flex: 1,
         paddingVertical: 10,
     },
@@ -99,17 +94,33 @@ const styles = StyleSheet.create({
     },
     dataColumn: {
         borderBottomWidth: 1,
-        borderBottomColor: 'lightgray',
+        borderBottomColor: '#CBC9D0',
     },
     columnHeader: {
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 16,
         color: 'black',
-
     },
-    columnItem: {
-        textAlign: 'center',
+    TimeAlign: {
+        textAlign: 'center', 
         fontSize: 16,
+        color: 'black'
     },
+    LevelAlign: {
+        textAlign: 'left',
+        fontSize: 16,
+        color: '#3E95F1',
+        paddingHorizontal: 10,
+    },
+    BlindAlign: {
+        textAlign: 'right',
+        fontSize: 16,
+        color: 'black',
+        paddingHorizontal: 10,
+    },
+    backgroundWhite: {
+        backgroundColor: 'white', 
+
+    }
 });
